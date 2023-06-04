@@ -1,3 +1,6 @@
+library(tidyverse)
+library(lavaan)
+
 model <- '
 y ~ x + d + n
 j ~ o + e
