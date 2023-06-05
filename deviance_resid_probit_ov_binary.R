@@ -26,7 +26,7 @@ deviance_resid_probit_ov_binary <- function(fit) {
   for (groups_for in n_groups) {
     data_model = inspect(fit, "data")[[groups_for]] |> as.data.frame()
     model_estimates_group = model_estimates %>% filter(group == groups_for)
-    result_final_dataframe = data.frame(id = seq(1,nrow(data_model)))
+    result_final_dataframe = data.frame(ID = fit@Data@case.idx[[groups_for]])
     for (ov_y_for in ov_y) {
       model_estimates_ov = model_estimates_group %>% filter(lhs == ov_y_for)
       model_estimates_inters = model_estimates_ov %>% filter(op == "~1")
